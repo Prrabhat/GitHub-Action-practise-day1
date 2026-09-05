@@ -12,5 +12,5 @@ jobs:
         - name: ste up python
           uses: actions/setup-python@v5
           with:
-            python-versions: '3.15'
+            python-versions: '3.4'
     
