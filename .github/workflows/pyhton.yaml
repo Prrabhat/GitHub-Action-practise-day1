@@ -1,0 +1,16 @@
+# What is the goal of your workflow
+# Gaol: To isntall the python application by using the GitHub actions. 
+
+name: Python app
+on:
+  workflow_dispatch: 
+
+jobs:
+     build:
+      runs-on: ububtu-latest
+      steps:
+        - name: ste up python
+          uses: actions/setup-python@v5
+          with:
+            python-versions: '3.15'
+    
