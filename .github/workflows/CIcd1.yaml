@@ -13,7 +13,7 @@ jobs:
     need: [code]
     runs-on: ubuntu-latest
       steps:
-        -name: Buiklding using docker
+        -name: Building using docker
          run: echo "Buiding using docker"
     
   test:
