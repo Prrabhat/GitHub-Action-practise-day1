@@ -3,9 +3,9 @@ name: Npm bulid
 on:
   workflow_dispatch:
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: action/checkout@v4
-        - name: npm build
-          run: npm run build
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: npm build
+        run: npm run build
