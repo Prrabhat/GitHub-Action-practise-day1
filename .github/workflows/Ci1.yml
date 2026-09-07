@@ -1,0 +1,36 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Frontend build
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
+          tar -czf frontend.tar.gz build/
+
+      # Backend build
+      - name: Build backend
+        run: |
+          cd backend
+          ./gradlew build   # or npm run build / python setup.py
+          cp build/libs/backend.jar ../backend.jar
+
+      # Upload artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            frontend/frontend.tar.gz
+            backend.jar
